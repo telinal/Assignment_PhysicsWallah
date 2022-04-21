@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.example.physicswallah.model.Users" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainCardview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_height"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                style="@style/namecustomStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Mohan Singh" />
+
+            <TextView
+                android:id="@+id/subjectTextView"
+                style="@style/subjectcustomStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.subjects[0]}"
+                app:layout_constraintBottom_toTopOf="@+id/viewmoreBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+                tools:hint="Chemistry" />
+
+            <TextView
+                android:id="@+id/qualificationTextView"
+                style="@style/qualificaioncustomStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.qualification[0]}"
+                app:layout_constraintBottom_toBottomOf="@+id/subjectTextView"
+                app:layout_constraintStart_toEndOf="@+id/subjectTextView"
+                app:layout_constraintTop_toTopOf="@+id/subjectTextView"
+                tools:hint="IIT Mumbai" />
+
+            <Button
+                android:id="@+id/viewmoreBtn"
+                style="@style/BtnCustomeStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="View More"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/subjectTextView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageCardview"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageId"
+                    setImageURL="@{user.profileImage}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
